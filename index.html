@@ -687,27 +687,52 @@
 
         /* Resume Section */
         .resume-box {
-            background: linear-gradient(135deg, #F0EBF8, #E8F5E9);
+            position: relative;
             border-radius: 12px;
             padding: 30px;
             text-align: center;
             margin-top: 20px;
             border: 2px solid var(--primary-color);
+            overflow: hidden;
+            background: linear-gradient(135deg, #F0EBF8, #E8F5E9);
+        }
+
+        .resume-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('resume-preview.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px);
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .resume-box > * {
+            position: relative;
+            z-index: 1;
         }
 
         .resume-icon {
             font-size: 4rem;
             margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
         }
 
         .resume-box h3 {
             color: var(--primary-color);
             margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
         }
 
         .resume-box p {
             margin-bottom: 20px;
             color: var(--text-color);
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
         }
 
         /* Footer */
@@ -781,13 +806,14 @@
             <h2>About Me</h2>
             
             <div class="profile-section">
-    <div class="profile-picture">
-        <img src="profile.jpg" alt="Srishti Srinivasan">
-    </div>
-    <p style="font-size: 0.9rem; color: #666; font-style: italic;">
-        
-    </p>
-</div>
+                <div class="profile-picture">
+                    <!-- Replace the content below with: <img src="path/to/your/photo.jpg" alt="Srishti Srinivasan"> -->
+                    👤
+                </div>
+                <p style="font-size: 0.9rem; color: #666; font-style: italic;">
+                    To add your photo: Replace the emoji with an &lt;img&gt; tag
+                </p>
+            </div>
 
             <p>
                 Hello! I am a Master of Science in Analytics student at Saint Louis University (Class of 2026) with a passion for turning data into actionable insights through AI and Machine Learning.
@@ -1134,9 +1160,9 @@
                 <div class="resume-icon">📄</div>
                 <h3>View My Resume</h3>
                 <p>Download or view my complete resume with detailed information about my education, experience, and skills.</p>
-                <a href="srishtisrini_resume.pdf" class="btn" target="_blank">Download Resume (PDF)</a>
+                <a href="your-resume.pdf" class="btn" target="_blank">Download Resume (PDF)</a>
                 <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
-                    
+                    <em>To add your resume: Upload your PDF resume file and replace "your-resume.pdf" with the actual filename</em>
                 </p>
             </div>
         </section>
