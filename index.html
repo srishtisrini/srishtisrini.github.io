@@ -5,49 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Srishti Srinivasan | Portfolio</title>
     <style>
-        /* CSS Styles - Makes the site look good */
+        /* CSS Styles with Pastel Theme */
         :root {
-            --primary-color: #2c3e50; /* Dark Slate Blue */
-            --accent-color: #3498db;  /* Bright Blue */
-            --bg-color: #f4f4f4;
-            --text-color: #333;
+            --primary-color: #8B7AB8; /* Soft Purple */
+            --accent-color: #88B9D6;  /* Soft Blue */
+            --secondary-color: #F4ACB7; /* Soft Pink */
+            --bg-color: #FAF9F6;
+            --text-color: #4A4A4A;
+            --card-bg: #FFFFFF;
+            --hover-color: #B4A7D6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            margin: 0;
-            padding: 0;
             background-color: var(--bg-color);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-shape {
+            position: absolute;
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape1 {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape2 {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .shape3 {
+            width: 100px;
+            height: 100px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .shape4 {
+            width: 70px;
+            height: 70px;
+            background: #B8E6D5;
+            border-radius: 50%;
+            top: 30%;
+            left: 70%;
+            animation-delay: 6s;
+        }
+
+        .shape5 {
+            width: 90px;
+            height: 90px;
+            background: #FFE5B4;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            animation-delay: 8s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(30px, -30px) rotate(90deg);
+            }
+            50% {
+                transform: translate(-20px, 20px) rotate(180deg);
+            }
+            75% {
+                transform: translate(20px, 30px) rotate(270deg);
+            }
         }
 
         /* Header Section */
         header {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
             padding: 4rem 0;
             text-align: center;
+            position: relative;
         }
 
         header h1 {
             margin: 0;
             font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         header p {
             font-size: 1.2rem;
-            opacity: 0.8;
+            opacity: 0.95;
             margin-top: 10px;
         }
 
         /* Navigation */
         nav {
-            background: #1a252f;
+            background: rgba(139, 122, 184, 0.95);
             text-align: center;
             padding: 1rem 0;
             position: sticky;
             top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
         }
 
         nav a {
@@ -55,89 +150,627 @@
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            transition: all 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
         }
 
         nav a:hover {
-            color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
         /* Main Content Container */
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
             padding: 2rem;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-top: -20px; /* Slight overlap with header */
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            margin-top: -20px;
+            border-radius: 15px;
+            margin-bottom: 3rem;
         }
 
         h2 {
             color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
             padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        /* About Section */
+        #about p {
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        /* Profile Picture Section */
+        .profile-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .profile-picture {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            box-shadow: 0 8px 25px rgba(139, 122, 184, 0.3);
+            border: 5px solid white;
+            overflow: hidden;
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Gallery Section */
+        .gallery-preview {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .view-gallery-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(139, 122, 184, 0.3);
+        }
+
+        .view-gallery-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(139, 122, 184, 0.4);
+        }
+
+        /* Gallery Modal */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s;
+            overflow-y: auto;
+        }
+
+        .gallery-modal-content {
+            background-color: var(--card-bg);
+            margin: 3% auto;
+            padding: 40px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        .close-gallery {
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 1001;
+        }
+
+        .close-gallery:hover {
+            color: var(--accent-color);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            padding-top: 100%;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .gallery-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
             margin-top: 30px;
         }
 
-        /* Project Cards */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
         .project-card {
-            background: #fff;
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 5px;
-            transition: transform 0.2s;
+            background: var(--card-bg);
+            border: 2px solid #E8E8E8;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(139, 122, 184, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.5rem;
+        }
+
+        .project-image.ai {
+            background: linear-gradient(135deg, #A8D5E2, #88B9D6);
+        }
+
+        .project-image.management {
+            background: linear-gradient(135deg, #F4ACB7, #FFD3B6);
+        }
+
+        .project-content {
+            padding: 20px;
         }
 
         .project-card h3 {
-            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--primary-color);
         }
 
-        /* Button Style */
+        .project-card p {
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            background: #F0EBF8;
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+
         .btn {
             display: inline-block;
             background: var(--accent-color);
             color: white;
             padding: 10px 20px;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            text-align: center;
+            flex: 1;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
-            background: #2980b9;
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 122, 184, 0.3);
         }
 
+        .btn-secondary {
+            background: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background: #E39AA3;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .skills-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .skill-level {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 12px;
+            background: #F0EBF8;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 10px;
+            transition: width 1.5s ease-in-out;
+            width: 0;
+        }
+
+        /* Certificates Section */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .certificate-card {
+            background: var(--card-bg);
+            border: 2px solid #E8E8E8;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(139, 122, 184, 0.2);
+            border-color: var(--accent-color);
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #B8E6D5, #88B9D6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .certificate-content {
+            padding: 15px;
+        }
+
+        .certificate-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .certificate-org {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Certificate Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            animation: slideIn 0.3s;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 2rem;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--primary-color);
+        }
+
+        .modal h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .modal p {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        /* Awards Section */
+        .award-card {
+            background: linear-gradient(135deg, #FFE5B4, #FFD3B6);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 20px;
+            border: 2px solid var(--secondary-color);
+            box-shadow: 0 4px 15px rgba(244, 172, 183, 0.2);
+        }
+
+        .award-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .award-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .award-description {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Books Section */
+        .books-container {
+            margin-top: 25px;
+        }
+
+        .reading-section {
+            margin-bottom: 30px;
+        }
+
+        .reading-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .book-card {
+            background: var(--card-bg);
+            border: 2px solid #E8E8E8;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(139, 122, 184, 0.15);
+            border-color: var(--secondary-color);
+        }
+
+        .book-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .book-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .book-author {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Languages Section */
+        .languages-list {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .language-badge {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(139, 122, 184, 0.2);
+        }
+
+        /* Resume Section */
+        .resume-box {
+            background: linear-gradient(135deg, #F0EBF8, #E8F5E9);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 20px;
+            border: 2px solid var(--primary-color);
+        }
+
+        .resume-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .resume-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .resume-box p {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             padding: 2rem 0;
             margin-top: 2rem;
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            .project-grid,
+            .skills-grid,
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 0.9rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        <div class="floating-shape shape3"></div>
+        <div class="floating-shape shape4"></div>
+        <div class="floating-shape shape5"></div>
+    </div>
+
     <header>
         <h1>SRISHTI SRINIVASAN</h1>
-        <p>MS ANALYTICS @SLU | Deep Learning, Project Management, Economics, Psychology</p>
+        <p>MS ANALYTICS @SLU | AI/ML Enthusiast | Project & Product Management | Avid Reader</p>
     </header>
 
     <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#awards">Awards</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#books">Books</a>
         <a href="#resume">Resume</a>
         <a href="#contact">Contact</a>
     </nav>
@@ -146,15 +779,33 @@
 
         <section id="about">
             <h2>About Me</h2>
+            
+            <div class="profile-section">
+                <div class="profile-picture">
+                    <!-- Replace the content below with: <img src="path/to/your/photo.jpg" alt="Srishti Srinivasan"> -->
+                    👤
+                </div>
+                <p style="font-size: 0.9rem; color: #666; font-style: italic;">
+                    To add your photo: Replace the emoji with an &lt;img&gt; tag
+                </p>
+            </div>
+
             <p>
-                Hello! I am a Master of Science in Analytics student at Saint Louis University (Class of 2026) with a passion for turning data into actionable insights. 
+                Hello! I am a Master of Science in Analytics student at Saint Louis University (Class of 2026) with a passion for turning data into actionable insights through AI and Machine Learning.
             </p>
             <p>
-                With a background in Economics, Psychology, and Politics, I bring a unique multidisciplinary perspective to data science. My goal is to combine my technical skills in coding and analytics with my lifelong passion for sports.
+                With a background in Economics, Psychology, and Politics, I bring a unique multidisciplinary perspective to data science. I'm passionate about AI/ML, Project Management, and Product Management, combining technical expertise with strategic thinking.
             </p>
             <p>
-                <strong>Fun Fact:</strong> I previously played badminton at the state level in India! When I'm not coding or analyzing game stats, you can find me hiking, reading fiction, or volunteering.
+                <strong>Fun Fact:</strong> I previously played badminton at the state level in India! When I'm not working on data projects, you can find me hiking, diving into fiction novels, or volunteering in my community.
             </p>
+            
+            <h3 style="color: var(--primary-color); margin-top: 25px;">Languages I Speak</h3>
+            <div class="languages-list">
+                <div class="language-badge">🇬🇧 English</div>
+                <div class="language-badge">🇮🇳 Hindi</div>
+                <div class="language-badge">🇮🇳 Tamil</div>
+            </div>
         </section>
 
         <section id="projects">
@@ -162,49 +813,342 @@
             <div class="project-grid">
                 
                 <div class="project-card">
-                    <h3>Sports Analytics Dashboard</h3>
-                    <p>An analysis of player performance metrics using Python and visualization tools.</p>
-                    <a href="#" class="btn">View Code</a>
+                    <div class="project-image ai">🤖</div>
+                    <div class="project-content">
+                        <h3>AI/ML Project</h3>
+                        <p>An advanced machine learning project utilizing deep learning techniques for predictive analytics and data-driven decision making.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Pandas</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Demo</a>
+                            <a href="#" class="btn btn-secondary">View Code</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="project-card">
-                    <h3>Project Management Tool</h3>
-                    <p>A resource planning application demonstrating agile methodologies.</p>
-                    <a href="#" class="btn">View Code</a>
-                </div>
-
-                <div class="project-card">
-                    <h3>C++ Algorithms</h3>
-                    <p>A collection of efficient algorithms and data structures I am currently building.</p>
-                    <a href="#" class="btn">View Code</a>
+                    <div class="project-image management">📊</div>
+                    <div class="project-content">
+                        <h3>Product Management Tool</h3>
+                        <p>A comprehensive product and project management application with agile methodologies, roadmap planning, and stakeholder collaboration features.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Agile</span>
+                            <span class="tech-tag">Tableau</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Demo</a>
+                            <a href="#" class="btn btn-secondary">View Code</a>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </section>
 
-        <section id="resume">
-            <h2>Education & Experience</h2>
-            
-            <h3>Saint Louis University</h3>
-            <p><strong>M.S. in Analytics</strong> | Expected Aug 2026</p>
-            <ul>
-                <li>Focus: Data Mining, Predictive Modeling, Sports Analytics</li>
-            </ul>
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skills-category">
+                    <h4>Programming & AI/ML</h4>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
 
-            <h3>Undergraduate Degree</h3>
-            <p><strong>B.A. Economics</strong> | Minors in Psychology & Politics</p>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Machine Learning</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Deep Learning</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">SQL</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="88%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Analytics & Management</h4>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Data Visualization</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Tableau</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="82%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Project Management</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Product Management</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="78%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates">
+            <h2>Certificates & View</h2>
+            <div class="certificates-grid">
+                
+                <div class="certificate-card" onclick="openModal('cert1')">
+                    <div class="certificate-image">📜</div>
+                    <div class="certificate-content">
+                        <div class="certificate-title">Certificate Name 1</div>
+                        <div class="certificate-org">Issuing Organization</div>
+                        <p style="font-size: 0.85rem; color: #999;">Click to view details</p>
+                    </div>
+                </div>
+
+                <div class="certificate-card" onclick="openModal('cert2')">
+                    <div class="certificate-image" style="background: linear-gradient(135deg, #A8D5E2, #F4ACB7);">🎓</div>
+                    <div class="certificate-content">
+                        <div class="certificate-title">Certificate Name 2</div>
+                        <div class="certificate-org">Issuing Organization</div>
+                        <p style="font-size: 0.85rem; color: #999;">Click to view details</p>
+                    </div>
+                </div>
+
+                <div class="certificate-card" onclick="openModal('cert3')">
+                    <div class="certificate-image" style="background: linear-gradient(135deg, #FFD3B6, #88B9D6);">🏆</div>
+                    <div class="certificate-content">
+                        <div class="certificate-title">Certificate Name 3</div>
+                        <div class="certificate-org">Issuing Organization</div>
+                        <p style="font-size: 0.85rem; color: #999;">Click to view details</p>
+                    </div>
+                </div>
+
+                <!-- Add more certificate cards as needed -->
+            </div>
+        </section>
+
+        <!-- Certificate Modals -->
+        <div id="cert1" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('cert1')">&times;</span>
+                <h3>Certificate Name 1</h3>
+                <p><strong>Issued by:</strong> Organization Name</p>
+                <p><strong>Date:</strong> Month Year</p>
+                <p><strong>What I Learned:</strong></p>
+                <p>Description of key concepts, skills, and knowledge gained from this certification. Include specific techniques, tools, or methodologies mastered.</p>
+                <p><strong>What I Did:</strong></p>
+                <p>Description of projects, assignments, or practical applications completed during the certification process.</p>
+            </div>
+        </div>
+
+        <div id="cert2" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('cert2')">&times;</span>
+                <h3>Certificate Name 2</h3>
+                <p><strong>Issued by:</strong> Organization Name</p>
+                <p><strong>Date:</strong> Month Year</p>
+                <p><strong>What I Learned:</strong></p>
+                <p>Description of key concepts and learning outcomes.</p>
+                <p><strong>What I Did:</strong></p>
+                <p>Description of practical work and achievements.</p>
+            </div>
+        </div>
+
+        <div id="cert3" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('cert3')">&times;</span>
+                <h3>Certificate Name 3</h3>
+                <p><strong>Issued by:</strong> Organization Name</p>
+                <p><strong>Date:</strong> Month Year</p>
+                <p><strong>What I Learned:</strong></p>
+                <p>Description of key concepts and learning outcomes.</p>
+                <p><strong>What I Did:</strong></p>
+                <p>Description of practical work and achievements.</p>
+            </div>
+        </div>
+
+        <section id="awards">
+            <h2>Awards & Recognition</h2>
+            <div class="award-card">
+                <div class="award-icon">🏆</div>
+                <div class="award-title">Highest Marks in Psychology</div>
+                <div class="award-description">
+                    Received the prestigious award for achieving the highest marks in Psychology during my undergraduate studies. This recognition reflects my dedication to understanding human behavior, cognitive processes, and psychological research methodologies. Through rigorous coursework and research projects, I developed strong analytical skills and a deep appreciation for evidence-based approaches to understanding the mind.
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <p>A glimpse into my adventures and activities</p>
+            <div class="gallery-preview">
+                <button class="view-gallery-btn" onclick="openGallery()">View Gallery</button>
+            </div>
+        </section>
+
+        <!-- Gallery Modal -->
+        <div id="galleryModal" class="gallery-modal">
+            <div class="gallery-modal-content">
+                <span class="close-gallery" onclick="closeGallery()">&times;</span>
+                <h2 style="margin-top: 0; margin-bottom: 30px;">My Gallery</h2>
+                <div class="gallery-grid">
+                    <!-- Placeholder for 10 images -->
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">1</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">2</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">3</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">4</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">5</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">6</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">7</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">8</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">9</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">10</div>
+                    </div>
+                </div>
+                <p style="margin-top: 20px; color: #666; font-size: 0.9rem; text-align: center;">
+                    <em>To add your images: Replace the gallery-placeholder divs with &lt;img&gt; tags pointing to your photos</em>
+                </p>
+            </div>
+        </div>
+
+        <section id="books">
+            <h2>Books & Reading</h2>
+            <p>Passionate about reading fiction and exploring diverse narratives</p>
             
-            <h3>Skills</h3>
-            <p>Python, C++, SQL, Project Management, Data Visualization, Tableau.</p>
+            <div class="books-container">
+                <div class="reading-section">
+                    <h4>Currently Reading</h4>
+                    <div class="books-grid">
+                        <div class="book-card">
+                            <div class="book-icon">📖</div>
+                            <div class="book-title">Book Title 1</div>
+                            <div class="book-author">Author Name</div>
+                        </div>
+                        <div class="book-card">
+                            <div class="book-icon">📖</div>
+                            <div class="book-title">Book Title 2</div>
+                            <div class="book-author">Author Name</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reading-section">
+                    <h4>Recently Completed</h4>
+                    <div class="books-grid">
+                        <div class="book-card">
+                            <div class="book-icon">✓</div>
+                            <div class="book-title">Book Title 3</div>
+                            <div class="book-author">Author Name</div>
+                        </div>
+                        <div class="book-card">
+                            <div class="book-icon">✓</div>
+                            <div class="book-title">Book Title 4</div>
+                            <div class="book-author">Author Name</div>
+                        </div>
+                        <div class="book-card">
+                            <div class="book-icon">✓</div>
+                            <div class="book-title">Book Title 5</div>
+                            <div class="book-author">Author Name</div>
+                        </div>
+                        <div class="book-card">
+                            <div class="book-icon">✓</div>
+                            <div class="book-title">Book Title 6</div>
+                            <div class="book-author">Author Name</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resume">
+            <h2>Resume</h2>
+            <div class="resume-box">
+                <div class="resume-icon">📄</div>
+                <h3>View My Resume</h3>
+                <p>Download or view my complete resume with detailed information about my education, experience, and skills.</p>
+                <a href="your-resume.pdf" class="btn" target="_blank">Download Resume (PDF)</a>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                    <em>To add your resume: Upload your PDF resume file and replace "your-resume.pdf" with the actual filename</em>
+                </p>
+            </div>
         </section>
 
         <section id="contact">
             <h2>Contact</h2>
-            <p>I am currently based in St. Louis and open to internship opportunities in sports analytics and data science.</p>
+            <p>I am currently based in St. Louis and open to internship opportunities in AI/ML, data science, project management, and product management.</p>
             <p>
                 <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-URL" class="btn">LinkedIn</a>
-                <a href="mailto:your.email@slu.edu" class="btn">Email Me</a>
-                <a href="https://github.com/YOUR-GITHUB-USER" class="btn">GitHub</a>
+                <a href="/cdn-cgi/l/email-protection#2a53455f58044f474b43466a59465f044f4e5f" class="btn">Email Me</a>
+                <a href="https://github.com/srishtisrini" class="btn">GitHub</a>
             </p>
         </section>
 
@@ -214,5 +1158,71 @@
         <p>&copy; 2026 Srishti Srinivasan. Built with GitHub Pages.</p>
     </footer>
 
-</body>
-</html>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Gallery Modal functionality
+        function openGallery() {
+            document.getElementById('galleryModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGallery() {
+            document.getElementById('galleryModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (event.target.classList.contains('gallery-modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Animate skill bars when they come into view
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.skill-progress');
+                    progressBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = width;
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 
